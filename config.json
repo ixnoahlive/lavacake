@@ -1,0 +1,6 @@
+{
+    "apiLimit": {
+        "reqAmount": 600,
+        "timeSec": 300
+    }
+}
