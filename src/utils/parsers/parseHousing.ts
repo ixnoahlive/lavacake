@@ -1,6 +1,6 @@
-const { priority } = require( "../../types/priority" );
+import { priority } from "../../types/priority";
 
-export function parseHousing(rank, housingMeta) {
+export default function parseHousing(rank, housingMeta) {
     const rankPriority = priority[rank] || 0
     
     let slots = 1

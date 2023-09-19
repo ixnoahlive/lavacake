@@ -1,5 +1,5 @@
-const { Endpoint } = require('./src/types/endpoint')
-const fs = require('fs')
+import { Endpoint } from './src/types/endpoint'
+import fs from 'fs'
 
 const pathFiles = {}
 

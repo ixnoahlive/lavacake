@@ -1,5 +1,8 @@
-const hypixelApi = require("../utils/hypixelApi").default;
-const Res = require("../../index").default;
+import hypixelApi from "../utils/hypixelApi";
+import Res from "../../index";
+
+import parseRank from '../utils/parsers/parseRank';
+import parseHousing from '../utils/parsers/parseHousing';
 
 const Cache = {}
 module.exports = {
@@ -24,9 +27,9 @@ module.exports = {
 
         // Fetch rank
         let rankId = "NONE";
-        if (HypixelData.newPackageRank)     rankId = HypixelData.newPackageRank
-        if (HypixelData.monthlyPackageRank) rankId = HypixelData.monthlyPackageRank
-        if (HypixelData.rank)               rankId = HypixelData.rank
+        if (HypixelData.newPackageRank)                                                rankId = HypixelData.newPackageRank
+        if (HypixelData.monthlyPackageRank || HypixelData.monthlyPackageRank!=="NONE") rankId = HypixelData.monthlyPackageRank
+        if (HypixelData.rank)                                                          rankId = HypixelData.rank
 
         if (rankId=="SUPERSTAR") rankId == "MVP_PLUS_PLUS"
 
@@ -45,6 +48,9 @@ module.exports = {
             displayName: HypixelData.displayname,
             playerName:  HypixelData.playername,
 
+            rank: rankId,
+            rankFormatted: parseRank(rankId, HypixelData.rankPlusColor, HypixelData.monthlyRankColor),
+
             firstLogin: HypixelData.firstLogin,
             lastLogout: HypixelData.lastLogout,
             lastLogin:  HypixelData.lastLogin,
@@ -56,6 +62,8 @@ module.exports = {
             
             quests: {},
             challenges: {},
+
+            housing: parseHousing(rankId, HypixelData.housingMeta),
             
             gifting: {
                 mysteryBoxes: {

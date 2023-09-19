@@ -1,4 +1,4 @@
-const { colors } = require('../../types/colors')
+import { colors } from '../../types/colors'
 
 const ranks = {
     VIP: '&a[VIP]',
@@ -12,8 +12,10 @@ const ranks = {
     NONE: '&7'
 }
 
-export function parseRank(rank, plusColour, rankColour) {
+export default function parseRank(rank, plusColour, rankColour) {
+    console.log(ranks)
+    console.log(colors)
     return ranks[rank]
-    .replace(/&%/g,  `&${colors[plusColour]}`)
-    .replace(/&\$/g, `&${colors[rankColour]}`)
+    .replace(/&%/g,  `&${colors[plusColour.toLowerCase()]}`)
+    .replace(/&\$/g, `&${colors[rankColour.toLowerCase()]}`)
 }
