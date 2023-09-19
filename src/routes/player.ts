@@ -5,7 +5,8 @@ import parseRank from '../utils/parsers/parseRank';
 import parseHousing from '../utils/parsers/parseHousing';
 
 const Cache = {}
-module.exports = {
+export default {
+    endpoint: 'player',
     path: '/player',
     params: ['name'],
     async run(req : Request, params : URLSearchParams) {

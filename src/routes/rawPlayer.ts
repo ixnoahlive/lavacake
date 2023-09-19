@@ -2,7 +2,8 @@ import hypixelApi from "../utils/hypixelApi";
 import Res from "../../index";
 
 const Cache = {}
-module.exports = {
+export default {
+    endpoint: 'rawPlayer',
     path: '/rawPlayer',
     params: ['name'],
     async run(req : Request, params : URLSearchParams) {

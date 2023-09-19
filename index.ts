@@ -1,12 +1,5 @@
 import { Endpoint } from './src/types/endpoint'
-import fs from 'fs'
-
-const pathFiles = {}
-
-fs.readdirSync('./src/routes').filter(fileName => fileName.endsWith('.ts')).forEach(fileName => {
-    const EndpointData : Endpoint = require(`./src/routes/${fileName.replace('.ts','')}`)
-    pathFiles[EndpointData.path] = EndpointData
-})
+import { endpoints } from './src/routes';
 
 export default function Res(obj : object) {
     return new Response(JSON.stringify(obj))
@@ -21,7 +14,7 @@ Bun.serve({
 
         // Format data
         const reqUrl = new URL(req.url)
-        const EndpointData : Endpoint = pathFiles[reqUrl.pathname]
+        const EndpointData : Endpoint = endpoints[reqUrl.pathname]
 
         // Check for valid arguments
         if ( !EndpointData ) return Res({ success: false, code: 400, error: 'Invalid pathname' })
