@@ -1,6 +1,10 @@
 {
   "name": "lavacake",
   "module": "index.ts",
+  "scripts": {
+    "dev": "tsc && bun --inspect=9229 index.ts",
+    "start": "bun index.ts"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
