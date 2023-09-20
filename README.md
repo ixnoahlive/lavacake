@@ -12,14 +12,14 @@
 ## 🍰 Introduction
 Lavacake is an easily deployable Hypixel API webserver, so you can rest easy knowing you
 - **It's fast.** Lavacake runs on Bun, making it lightning fast for users & developers alike.
-- **It's clean** Lavacake cleans up the Hypixel API, adding more wrapping & removing the junk. (see [FAQ](#%E2%9D%93-fag) for more info)
+- **It's clean** Lavacake cleans up the Hypixel API, adding more wrapping & removing the junk. (see [FAQ](#%E2%9D%93-faq) for more info)
 - **It tastes good.** Every instance of Lavacake is guaranteed to taste good. Make sure to enjoy!
 
 Looking for something with a broken scrollwheel? Check these links out to quickly jump:
 
 - [Installation Guide](#%F0%9F%93%A6-installation)
 - [Contributing](#%F0%9F%92%96-contributing)
-- [FAQ](#%E2%9D%93-fag)
+- [FAQ](#%E2%9D%93-faq)
 
 ## 🗺️ Roadmap
 |  ?  | Feature                |
