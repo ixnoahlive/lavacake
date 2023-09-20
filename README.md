@@ -10,15 +10,16 @@
 </div>
 
 ## 🍰 Introduction
-Lavacake is an easily deployable Hypixel API webserver.
+Lavacake is an easily deployable Hypixel API webserver, so you can rest easy knowing you
 - **It's fast.** Lavacake runs on Bun, making it lightning fast for users & developers alike.
-- **It's clean** Lavacake cleans up the Hypixel API, adding more wrapping & removing the junk.
+- **It's clean** Lavacake cleans up the Hypixel API, adding more wrapping & removing the junk. (see FAQ for more info)
 - **It tastes good.** Every instance of Lavacake is guaranteed to taste good. Make sure to enjoy!
 
 Looking for something with a broken scrollwheel? Check these links out to quickly jump:
 
 - [Installation Guide](#📦-installation)
 - [Contributing](#💖-contributing)
+- [FAQ](#❓-fag)
 
 ## 🗺️ Roadmap
 |  ?  | Feature                |
@@ -90,3 +91,7 @@ Now, please open config.json and we'll explain what all the funky values mean.
     - enabled: Whether or not user ratelimiting is enabled. If you do not use NGINX, this should be set to false.
 - **port**
     - The port to run Lavacake on, e.g. `9753`. Please check [this Wikipedia article](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) for a list of port standards to prevent conflicts.
+
+## ❓ FAQ
+- What "junk" is being removed by Lavacake?
+    - At the minute, we're looking at only implementing core statistics for games & wrapping what's most used (e.g. levels & coins). It might seem generic to say junk, but not enough people will be checking the Mega SkyWars Quit Count for it to be wrapped. If there's anything missing that you would like included in Lavacake you can open an [issue](/issues) at our issues page.
