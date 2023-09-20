@@ -5,15 +5,21 @@
     <br/><br/>
     <img src="https://cdn.discordapp.com/attachments/1071274344019398748/1153760402799349760/lavacake.png" height="100">
     <br/>
-    <b style="font-size: 1.5em">Lavacake</b><br>
+    <b>Lavacake</b><br>
     <i>A freshly baked Hypixel webserver!</i>
 </div>
 
 ## 🍰 Introduction
-Lavacake is an easily deployable Hypixel API webserver.
-- **It's fast.** Lavacake runs on Bun, making it lightning fast for users & developers alike.
-- **It's clean** Lavacake cleans up the Hypixel API, adding more wrapping & removing the junk.
-- **It tastes good.** Every instance of Lavacake is guaranteed to taste good. Make sure to enjoy!
+Lavacake is an easily deployable Hypixel API webserver, so you can rest easy knowing you
+- **It's fast!** Lavacake runs on Bun, making it lightning fast for users & developers alike.
+- **It's clean!** Lavacake cleans up the Hypixel API, adding more wrapping & removing the [junk.](#-faq)
+- **Very tasty!** Every instance of Lavacake is guaranteed to taste good. Make sure to enjoy!
+
+Looking for something with a broken scrollwheel? Check these links out to quickly jump:
+
+- [Installation Guide](#-installation)
+- [Contributing](#-contributing)
+- [FAQ](#-faq)
 
 ## 🗺️ Roadmap
 |  ?  | Feature                |
@@ -24,20 +30,24 @@ Lavacake is an easily deployable Hypixel API webserver.
 | ⌛ | SkyWars Wrapping
 | ⌛ | Pit Wrapping
 
+## 💖 Contributing
+Contributing is simple, make a fork & merge it when you're done. We do request you to please run `bun run pretty` to format your code to be in line with our style guidelines.
+
+- [Open a pull request](/pulls)
+- [Make a fork](/fork)
+
 ## 📦 Installation
-This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOs and Windows.
+This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOS and Windows.
 
 ### Prerequisites
-Lavacake is best run through an NGINX-like software, this is due to the extra headers provided by said software allowing ratelimits to work. Of course, NGINX is **not required**. See the second link for disabling user ratelimits.
+Lavacake is best run through a reverse proxy (such as NGINX) software, this is due to the extra headers provided by said software allowing ratelimits to work. Of course, a reverse proxy is **not required**. See the second link for disabling user ratelimits.
 
+You also need Bun, Lavacake **cannot** be used with Node.js & uses native Bun features! Installing Bun only takes 10 seconds, so make sure to get it installed!
+
+- [👉 Install Bun](https://bun.sh/)
 - [Installing NGINX](https://ubuntu.com/tutorials/install-and-configure-nginx)
 - [Configuring Lavacake](#configuring-lavacake)
 
-### Installing Bun
-Lavacake uses native Bun functions, and **cannot be used with Node**. Thankfully, installing Bun is easy!
-```bash
-curl -fsSL https://bun.sh/install | bash
-```
 ### Installing Lavacake
 You can either grab the latest release of Lavacake from the [releases](/releases) tab, or get a copy of the codebase with the <kbd><> Code</kbd> button.
 
@@ -56,7 +66,7 @@ bun start
 ```
 
 ### Configuring Lavacake
-Bun has two configuration file, one containing your tokens & the other containing your config.
+Lvacake has two configuration files, one containing your tokens & the other containing your config.
 
 First, create a new file called `token.json` and paste in the following:
 
@@ -82,7 +92,6 @@ Now, please open config.json and we'll explain what all the funky values mean.
 - **port**
     - The port to run Lavacake on, e.g. `9753`. Please check [this Wikipedia article](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) for a list of port standards to prevent conflicts.
 
-## 🧪 Data Sample
-A sample of a Lavacake data object.
-
-Currently unavailable.
+## ❓ FAQ
+- What "junk" is being removed by Lavacake?
+    - At the minute, we're looking at only implementing core statistics for games & wrapping what's most used (e.g. levels & coins). It might seem generic to say junk, but not enough people will be checking the Mega SkyWars Quit Count for it to be wrapped. If there's anything missing that you would like included in Lavacake you can open an [issue](/issues) at our issues page.
