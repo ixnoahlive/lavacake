@@ -30,14 +30,12 @@ This installation guide is intended for Linux servers as they are most common an
 ### Prerequisites
 Lavacake is best run through a reverse proxy (such as NGINX) software, this is due to the extra headers provided by said software allowing ratelimits to work. Of course, a reverse proxy is **not required**. See the second link for disabling user ratelimits.
 
+You also need Bun, Lavacake **cannot** be used with Node.js & uses native Bun features! Installing Bun only takes 10 seconds, so make sure to get it installed!
+
+- [👉 Install Bun](https://bun.sh/)
 - [Installing NGINX](https://ubuntu.com/tutorials/install-and-configure-nginx)
 - [Configuring Lavacake](#configuring-lavacake)
 
-### Installing Bun
-Lavacake uses native Bun functions, and **cannot be used with Node**. Thankfully, installing Bun is easy! You can follow their [official documentation](https://bun.sh/) or just run the command below:
-```bash
-curl -fsSL https://bun.sh/install | bash
-```
 ### Installing Lavacake
 You can either grab the latest release of Lavacake from the [releases](/releases) tab, or get a copy of the codebase with the <kbd><> Code</kbd> button.
 
