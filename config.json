@@ -2,5 +2,11 @@
     "apiLimit": {
         "reqAmount": 600,
         "timeSec": 300
-    }
+    },
+    "userRatelimit": {
+        "enabled": true,
+        "reqAmount": 10,
+        "expires": 10
+    },
+    "port": 9753
 }
