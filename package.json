@@ -2,6 +2,10 @@
   "name": "lavacake",
   "module": "index.ts",
   "version": "alpha-1",
+  "prettier":{
+    "semi": false,
+    "tabWidth": 4
+  },
   "devDependencies": {
     "bun-types": "latest",
     "nodemon": "^3.0.1"

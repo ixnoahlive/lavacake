@@ -1,0 +1,15 @@
+.git
+.github
+node_modules
+.gitattributes
+.gitignore
+.prettierrc
+.prettierignore
+bun.lockb
+config.json
+token.json
+tsconfig.json
+README.md
+LICENSE
+package.json
+package-lock.json
