@@ -15,6 +15,11 @@ Lavacake is an easily deployable Hypixel API webserver.
 - **It's clean** Lavacake cleans up the Hypixel API, adding more wrapping & removing the junk.
 - **It tastes good.** Every instance of Lavacake is guaranteed to taste good. Make sure to enjoy!
 
+Looking for something with a broken scrollwheel? Check these links out to quickly jump:
+
+- [Installation Guide](#📦-installation)
+- [Contributing](#💖-contributing)
+
 ## 🗺️ Roadmap
 |  ?  | Feature                |
 | --- | ---------------------- |
@@ -23,6 +28,9 @@ Lavacake is an easily deployable Hypixel API webserver.
 | ⌛ | Bed Wars Wrapping
 | ⌛ | SkyWars Wrapping
 | ⌛ | Pit Wrapping
+
+## 💖 Contributing
+
 
 ## 📦 Installation
 This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOS and Windows.
@@ -79,8 +87,3 @@ Now, please open config.json and we'll explain what all the funky values mean.
     - enabled: Whether or not user ratelimiting is enabled. If you do not use NGINX, this should be set to false.
 - **port**
     - The port to run Lavacake on, e.g. `9753`. Please check [this Wikipedia article](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) for a list of port standards to prevent conflicts.
-
-## 🧪 Data Sample
-A sample of a Lavacake data object.
-
-Currently unavailable.
