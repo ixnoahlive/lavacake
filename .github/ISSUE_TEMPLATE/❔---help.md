@@ -1,7 +1,7 @@
 ---
 name: "❔ - Help"
 about: Ask questions or get assistance with Lavacake
-title: "❔ [HELP]"
+title: "❔ <ISSUE TITLE>"
 labels: question
 assignees: ''
 

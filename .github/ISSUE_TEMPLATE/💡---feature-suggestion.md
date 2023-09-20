@@ -1,7 +1,7 @@
 ---
-name: "\U0001F4A1 - Suggestion"
-about: Suggest an idea for Lavacake
-title: "\U0001F4A1 [SUGGESTION]"
+name: "\U0001F4A1 - Feature/Suggestion"
+about: Give an idea for Lavacake
+title: "\U0001F4A1 <ISSUE TITLE>"
 labels: suggestion
 assignees: ''
 

@@ -1,7 +1,7 @@
 ---
 name: "\U0001F41B - Bug Report"
 about: Tell us about bugs & issues with Lavacake
-title: "\U0001F41B [BUG]"
+title: "\U0001F41B <ISSUE TITLE>"
 labels: bug
 assignees: ''
 
