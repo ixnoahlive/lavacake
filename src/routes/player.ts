@@ -1,11 +1,11 @@
 import hypixelApi from "../utils/hypixelApi";
 import Res from "../../index";
 
-import parseRank from '../utils/parsers/parseRank';
+import parseRank, { Ranks } from '../utils/parsers/parseRank';
 import parseHousing from '../utils/parsers/parseHousing';
+import Cache from "../utils/Cache";
 
-const Cache: Record<string, any> = {}
-module.exports = {
+export default {
     path: '/player',
     params: ['name'],
     async run(req : Request, params : URLSearchParams) {
@@ -24,16 +24,19 @@ module.exports = {
         }
 
         // Return raw response if unsuccessful
-        if (!HypixelData.success || !HypixelData) return Res(HypixelData || {success: false, code: 404, error: 'Could not retrieve player data from cache or API'})
-        HypixelData = HypixelData.player
+        if (HypixelData.success==false || !HypixelData) return Res(HypixelData || {success: false, code: 404, error: 'Could not retrieve player data from cache or API'})
+        if (HypixelData.player) HypixelData = HypixelData.player
 
-        Cache[lowerCaseName] = HypixelData
+        if (!previouslyCached) {
+            HypixelData._lastUpdate = Date.now()
+            Cache[lowerCaseName] = HypixelData
+        }
 
         // Fetch rank
         let rankId = "NONE";
-        if (HypixelData.newPackageRank)                                                rankId = HypixelData.newPackageRank
-        if (HypixelData.monthlyPackageRank || HypixelData.monthlyPackageRank!=="NONE") rankId = HypixelData.monthlyPackageRank
-        if (HypixelData.rank)                                                          rankId = HypixelData.rank
+        if (HypixelData.newPackageRank)              rankId = HypixelData.newPackageRank
+        if (HypixelData.monthlyPackageRank!=="NONE") rankId = HypixelData.monthlyPackageRank || rankId
+        if (HypixelData.rank)                        rankId = HypixelData.rank
 
         if (rankId=="SUPERSTAR") rankId = "MVP_PLUS_PLUS"
 
@@ -41,11 +44,12 @@ module.exports = {
         if (!previouslyCached) {
             setTimeout(() => {
                 delete Cache[lowerCaseName as string] // setTimeout would not be called if lowerCaseName was undefined
-            }, 120*1000);
+            }, 300*1000);
         }
 
         return Res({
             success: true,
+            _lastUpdate: HypixelData._lastUpdate,
 
             _id:         HypixelData._id,
             uuid:        HypixelData.uuid,
@@ -53,7 +57,7 @@ module.exports = {
             playerName:  HypixelData.playername,
 
             rank: rankId,
-            rankFormatted: parseRank(rankId as any, HypixelData.rankPlusColor?.toLowerCase(), HypixelData.monthlyRankColor?.toLowerCase()),
+            rankFormatted: parseRank(rankId as keyof typeof Ranks, HypixelData.rankPlusColor?.toLowerCase(), HypixelData.monthlyRankColor?.toLowerCase()),
 
             firstLogin: HypixelData.firstLogin,
             lastLogout: HypixelData.lastLogout,

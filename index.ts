@@ -25,10 +25,10 @@ Bun.serve({
 
         // Format data
         const reqUrl = new URL(req.url)
-        const EndpointData : Endpoint = endpoints[reqUrl.pathname]
+        const EndpointData : Endpoint = endpoints[reqUrl.pathname.replace('/','') || 'root']
 
         // Check for valid arguments
-        if ( !EndpointData ) return Res({ success: false, code: 400, error: 'Invalid pathname' })
+        if ( !EndpointData ) return Res({ success: false, code: 404, error: 'Not found' })
         if ( !EndpointData.params.every( key => reqUrl.searchParams.has(key) ) ) return Res({ success: false, code: 400, error: 'Missing parameters', required: EndpointData.params })
 
         // Manage ratelimit addition

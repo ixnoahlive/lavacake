@@ -19,5 +19,5 @@
       "bun-types" // add Bun global
     ]
   },
-  "include": ["src/**/*", "token.json", "index.ts"]
+  "include": ["src/**/*", "token.json", "index.ts", "src/routes/.ts"]
 }
