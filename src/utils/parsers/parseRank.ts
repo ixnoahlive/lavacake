@@ -1,6 +1,5 @@
 import { Colors } from '../../types/colors'
 
-
 export enum Ranks {
     VIP = '&a[VIP]',
     VIP_PLUS = '&a[VIP&6+&a]',
@@ -13,7 +12,5 @@ export enum Ranks {
     NONE = '&7',
 }
 export default function parseRank(rank: keyof typeof Ranks, plusColour: keyof typeof Colors, rankColour: keyof typeof Colors) {
-    return Ranks[rank]
-    .replace(/&%/g,  `&${Colors[plusColour]}`)
-    .replace(/&\$/g, `&${Colors[rankColour]}`)
+    return Ranks[rank].replace(/&%/g, `&${Colors[plusColour]}`).replace(/&\$/g, `&${Colors[rankColour]}`)
 }

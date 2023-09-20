@@ -5,7 +5,10 @@
   "license":"Apache-2.0",
   "prettier":{
     "semi": false,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "singleQuote": true,
+    "printWidth": 256,
+    "bracketSpacing": true
   },
   "devDependencies": {
     "bun-types": "latest",

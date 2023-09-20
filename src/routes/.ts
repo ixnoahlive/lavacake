@@ -1,5 +1,5 @@
-import Res from "../../index"
-import packageInfo from '../../package.json' assert { type: 'json' };
+import Res from '../../index'
+import packageInfo from '../../package.json' assert { type: 'json' }
 
 export default {
     path: '/',
@@ -8,7 +8,7 @@ export default {
         return Res({
             version: packageInfo.version,
             code: 200,
-            message: '🍰 Lavacake is baked & running!'
+            message: '🍰 Lavacake is baked & running!',
         })
-    }
+    },
 }

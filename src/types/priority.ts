@@ -7,5 +7,5 @@ export enum RankPriority {
     MVP_PLUS_PLUS = 5,
     YOUTUBE = 6,
     GM = 7,
-    ADMIN = 8
+    ADMIN = 8,
 }

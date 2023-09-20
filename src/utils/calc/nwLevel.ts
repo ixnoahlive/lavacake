@@ -1,15 +1,15 @@
 /* eslint-disable max-len, no-use-before-define */
 
-const BASE = 10000;
-const GROWTH = 2500;
+const BASE = 10000
+const GROWTH = 2500
 
 /* Constants to generate the total amount of XP to complete a level */
-const HALF_GROWTH = 0.5 * GROWTH;
+const HALF_GROWTH = 0.5 * GROWTH
 
 /* Constants to look up the level from the total amount of XP */
-const REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH;
-const REVERSE_CONST = REVERSE_PQ_PREFIX * REVERSE_PQ_PREFIX;
-const GROWTH_DIVIDES_2 = 2 / GROWTH;
+const REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH
+const REVERSE_CONST = REVERSE_PQ_PREFIX * REVERSE_PQ_PREFIX
+const GROWTH_DIVIDES_2 = 2 / GROWTH
 
 /**
  * This method returns the level of a player calculated by the current experience gathered. The result is
@@ -27,8 +27,8 @@ const GROWTH_DIVIDES_2 = 2 / GROWTH;
  * @param exp Total experience gathered by the player.
  * @return number level of player (Smallest value is 1.0)
  */
-function getLevel(exp : number) {
-  return exp <= 1 ? 1 : Math.floor(1 + REVERSE_PQ_PREFIX + Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp));
+function getLevel(exp: number) {
+    return exp <= 1 ? 1 : Math.floor(1 + REVERSE_PQ_PREFIX + Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp))
 }
 
 /**
@@ -47,8 +47,8 @@ function getLevel(exp : number) {
  * @param exp Total experience gathered by the player.
  * @return Exact level of player (Smallest value is 1.0)
  */
-function getExactLevel(exp : number) {
-  return getLevel(exp) + getPercentageToNextLevel(exp);
+function getExactLevel(exp: number) {
+    return getLevel(exp) + getPercentageToNextLevel(exp)
 }
 
 /**
@@ -69,8 +69,8 @@ function getExactLevel(exp : number) {
  * @param level Level from which you want to get the next level with the same level progress
  * @return number to reach the next level with same progress
  */
-function getExpFromLevelToNext(level : number) {
-  return level < 1 ? BASE : GROWTH * (level - 1) + BASE;
+function getExpFromLevelToNext(level: number) {
+    return level < 1 ? BASE : GROWTH * (level - 1) + BASE
 }
 
 /**
@@ -91,11 +91,11 @@ function getExpFromLevelToNext(level : number) {
  * @param level The level and progress of the level to reach
  * @return The experience required to reach that level and progress
  */
-function getTotalExpToLevel(level : number) {
-  const lv = Math.floor(level); const
-    x0 = getTotalExpToFullLevel(lv);
-  if (level === lv) return x0;
-  return (getTotalExpToFullLevel(lv + 1) - x0) * (level % 1) + x0;
+function getTotalExpToLevel(level: number) {
+    const lv = Math.floor(level)
+    const x0 = getTotalExpToFullLevel(lv)
+    if (level === lv) return x0
+    return (getTotalExpToFullLevel(lv + 1) - x0) * (level % 1) + x0
 }
 
 /**
@@ -105,8 +105,8 @@ function getTotalExpToLevel(level : number) {
  * @param level Level to receive the amount of experience to
  * @return Experience to reach the given level
  */
-function getTotalExpToFullLevel(level : number) {
-  return (HALF_GROWTH * (level - 2) + BASE) * (level - 1);
+function getTotalExpToFullLevel(level: number) {
+    return (HALF_GROWTH * (level - 2) + BASE) * (level - 1)
 }
 
 /**
@@ -123,17 +123,17 @@ function getTotalExpToFullLevel(level : number) {
  * @param exp Current experience gathered by the player
  * @return Current progress to the next level
  */
-function getPercentageToNextLevel(exp : number) {
-  const lv = getLevel(exp);
-  const x0 = getTotalExpToLevel(lv);
-  return (exp - x0) / (getTotalExpToLevel(lv + 1) - x0);
+function getPercentageToNextLevel(exp: number) {
+    const lv = getLevel(exp)
+    const x0 = getTotalExpToLevel(lv)
+    return (exp - x0) / (getTotalExpToLevel(lv + 1) - x0)
 }
 
 export default {
-  getLevel,
-  getExactLevel,
-  getExpFromLevelToNext,
-  getTotalExpToLevel,
-  getTotalExpToFullLevel,
-  getPercentageToNextLevel,
-};
+    getLevel,
+    getExactLevel,
+    getExpFromLevelToNext,
+    getTotalExpToLevel,
+    getTotalExpToFullLevel,
+    getPercentageToNextLevel,
+}

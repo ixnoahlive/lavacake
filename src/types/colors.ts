@@ -15,5 +15,5 @@ export enum Colors {
     light_purple = 'd',
     yellow = 'e',
     white = 'f',
-    reset = 'r'
+    reset = 'r',
 }
