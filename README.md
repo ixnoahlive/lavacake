@@ -25,7 +25,7 @@ If you want to open a feature request or work on a feature, check out our [issue
 This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOs and Windows.
 
 ### Prerequisites
-Lavacake is best run through an NGINX-like software, this is due to the extra headers provided by said software allowing ratelimits to work.
+Lavacake is best run through an NGINX-like software, this is due to the extra headers provided by said software allowing ratelimits to work. Of course, NGINX is **not required**. See the second link for disabling user ratelimits.
 
 - [Installing NGINX](https://ubuntu.com/tutorials/install-and-configure-nginx)
 - [Configuring Lavacake](#configuring-lavacake)
