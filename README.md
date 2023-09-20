@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://img.shields.io/badge/made%20for-bun-peru">
+    <img src="https://img.shields.io/badge/license-Apache_2.0-blue">
     <img src="https://img.shields.io/github/stars/NoahTheNerd/lavacake">
-    <img src="https://img.shields.io/github/forks/NoahTheNerd/lavacake">
     <br/><br/>
     <img src="https://cdn.discordapp.com/attachments/1071274344019398748/1153760402799349760/lavacake.png" height="100">
     <br/>
@@ -10,16 +10,10 @@
 </div>
 
 ## 🍰 Introduction
-Lavacake is a Hypixel API webserver that's built on [Bun](https://bun.sh/), making it *lightning-fast*! Lavacake also wraps parts of the API, removing most of the junk & doing the math for you!
-
-If you want to open a feature request or work on a feature, check out our [issues](/issues) and [pull requests](/pulls)!
-
-|     | Feature            |
-|-----|--------------------|
-| ✅   | Basic Player Info  |
-| ✅   | Rank Formatting    |
-| ✅   | Housing Wrapping   |
-| 🛠️ | Level Calculations |
+Lavacake is an easily deployable Hypixel API webserver.
+- **It's fast.** Lavacake runs on Bun, making it lightning fast for users & developers alike.
+- **It's clean** Lavacake cleans up the Hypixel API, adding more wrapping & removing the junk.
+- **It tastes good.** Every instance of Lavacake is guaranteed to taste good. Make sure to enjoy!
 
 ## 📦 Installation
 This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOs and Windows.
