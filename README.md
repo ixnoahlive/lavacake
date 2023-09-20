@@ -15,6 +15,15 @@ Lavacake is an easily deployable Hypixel API webserver.
 - **It's clean** Lavacake cleans up the Hypixel API, adding more wrapping & removing the junk.
 - **It tastes good.** Every instance of Lavacake is guaranteed to taste good. Make sure to enjoy!
 
+## 🗺️ Roadmap
+|  ?  | Feature                |
+| --- | ---------------------- |
+| ✅ | Network XP Wrapping
+| ✅ | Housing Wrapping
+| ⌛ | Bed Wars Wrapping
+| ⌛ | SkyWars Wrapping
+| ⌛ | Pit Wrapping
+
 ## 📦 Installation
 This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOs and Windows.
 
