@@ -5,7 +5,7 @@
     <br/><br/>
     <img src="https://cdn.discordapp.com/attachments/1071274344019398748/1153760402799349760/lavacake.png" height="100">
     <br/>
-    <b style="font-size: 1.5em">Lavacake</b><br>
+    <b>Lavacake</b><br>
     <i>A freshly baked Hypixel webserver!</i>
 </div>
 
@@ -30,7 +30,10 @@ Looking for something with a broken scrollwheel? Check these links out to quickl
 | ⌛ | Pit Wrapping
 
 ## 💖 Contributing
+Contributing is simple, make a fork & merge it when you're done. We do request you to please run `bun run pretty` to format your code to be in line with our style guidelines.
 
+- [Open a pull request](/pulls)
+- [Make a fork](/fork)
 
 ## 📦 Installation
 This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOS and Windows.
