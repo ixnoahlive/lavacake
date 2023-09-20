@@ -4,27 +4,30 @@ import Res from "../../index";
 import parseRank from '../utils/parsers/parseRank';
 import parseHousing from '../utils/parsers/parseHousing';
 
-const Cache = {}
-export default {
-    endpoint: 'player',
+const Cache: Record<string, any> = {}
+module.exports = {
     path: '/player',
     params: ['name'],
     async run(req : Request, params : URLSearchParams) {
-        let HypixelData = Cache[ params.get('name').toLowerCase() ]
+        let lowerCaseName = params.get('name')?.toLowerCase();
+        if(!lowerCaseName) {
+            throw new Error("Name is required but not provided");
+        }
+        let HypixelData = Cache[lowerCaseName]
         let previouslyCached = HypixelData ? true : false
 
         if (!previouslyCached) {
-            await hypixelApi.get(`/player?name=${params.get('name')}`)
+            await hypixelApi.get(`/player?name=${lowerCaseName}`)
                 .then(promise => promise.json().then(
                     result => { HypixelData = result }
                 ));
         }
-        
+
         // Return raw response if unsuccessful
         if (!HypixelData.success || !HypixelData) return Res(HypixelData || {success: false, code: 404, error: 'Could not retrieve player data from cache or API'})
         HypixelData = HypixelData.player
 
-        Cache[params.get('name').toLowerCase()] = HypixelData
+        Cache[lowerCaseName] = HypixelData
 
         // Fetch rank
         let rankId = "NONE";
@@ -32,12 +35,12 @@ export default {
         if (HypixelData.monthlyPackageRank || HypixelData.monthlyPackageRank!=="NONE") rankId = HypixelData.monthlyPackageRank
         if (HypixelData.rank)                                                          rankId = HypixelData.rank
 
-        if (rankId=="SUPERSTAR") rankId == "MVP_PLUS_PLUS"
+        if (rankId=="SUPERSTAR") rankId = "MVP_PLUS_PLUS"
 
         // Remove from cache after time
         if (!previouslyCached) {
             setTimeout(() => {
-                delete Cache[HypixelData.playername]
+                delete Cache[lowerCaseName as string] // setTimeout would not be called if lowerCaseName was undefined
             }, 120*1000);
         }
 
@@ -50,7 +53,7 @@ export default {
             playerName:  HypixelData.playername,
 
             rank: rankId,
-            rankFormatted: parseRank(rankId, HypixelData.rankPlusColor, HypixelData.monthlyRankColor),
+            rankFormatted: parseRank(rankId as any, HypixelData.rankPlusColor?.toLowerCase(), HypixelData.monthlyRankColor?.toLowerCase()),
 
             firstLogin: HypixelData.firstLogin,
             lastLogout: HypixelData.lastLogout,
@@ -60,12 +63,12 @@ export default {
             achievementsOneTime: undefined,
             achievementRewardsNew: undefined,
             achievementTracking: undefined,
-            
+
             quests: {},
             challenges: {},
 
-            housing: parseHousing(rankId, HypixelData.housingMeta),
-            
+            housing: parseHousing(rankId as any, HypixelData.housingMeta),
+
             gifting: {
                 mysteryBoxes: {
                     giftsGiven:   HypixelData.giftingMeta?.giftsGiven,

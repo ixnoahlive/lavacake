@@ -5,29 +5,33 @@ export default function Res(obj : object) {
     return new Response(JSON.stringify(obj))
 }
 
-const Ratelimits = {}
+const rateLimits: Record<string, number> = {}
 Bun.serve({
     port: 9753,
     fetch(req) {
         // Check if ratelimited
-        if ( Ratelimits[req.headers['x-forwarded-for']]>=10 ) return Res({ success: false, code: 429, error: 'You are being ratelimited' })
+        const consumerIP = req.headers.get('x-forwarded-for');
+        if(!consumerIP) {
+            throw new Error("x-forwarded-for header is required but not provided");
+        }
+        if ( rateLimits[consumerIP]>=10 ) return Res({ success: false, code: 429, error: 'You are being ratelimited' })
 
         // Format data
         const reqUrl = new URL(req.url)
         const EndpointData : Endpoint = endpoints[reqUrl.pathname]
 
         // Check for valid arguments
-        if ( !EndpointData ) return Res({ success: false, code: 400, error: 'Invalid pathname' })
-        if ( !EndpointData.params.every( key => reqUrl.searchParams.has(key) ) ) return Res({ success: false, code: 400, error: 'Missing parameters', required: EndpointData.params })
+        if ( !endpointData ) return Res({ success: false, code: 400, error: 'Invalid pathname' })
+        if ( !endpointData.params.every( key => reqUrl.searchParams.has(key) ) ) return Res({ success: false, code: 400, error: 'Missing parameters', required: endpointData.params })
 
         // Manage ratelimit addition
-        if (!Ratelimits[req.headers['x-forwarded-for']]) Ratelimits[req.headers['x-forwarded-for']] = 0
-        Ratelimits[req.headers['x-forwarded-for']]++
+        if (!rateLimits[consumerIP]) rateLimits[consumerIP] = 0
+        rateLimits[consumerIP]++
         setTimeout(() => {
-            Ratelimits[req.headers['x-forwarded-for']] -= 1
+            rateLimits[consumerIP] -= 1
         }, 10*1000);
 
         // Run endpoint code
-        return EndpointData.run( req, reqUrl.searchParams )
+        return endpointData.run( req, reqUrl.searchParams )
     }
 })

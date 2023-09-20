@@ -2,9 +2,14 @@
   "name": "lavacake",
   "module": "index.ts",
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "nodemon": "^3.0.1"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon -L --exec \"tsc && bun --inspect=9229\" index.ts",
+    "start": "bun index.ts"
   }
 }

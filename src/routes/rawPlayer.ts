@@ -1,13 +1,16 @@
 import hypixelApi from "../utils/hypixelApi";
 import Res from "../../index";
 
-const Cache = {}
-export default {
-    endpoint: 'rawPlayer',
+const Cache: Record<string, any> = {}
+module.exports = {
     path: '/rawPlayer',
     params: ['name'],
     async run(req : Request, params : URLSearchParams) {
-        let HypixelData = Cache[ params.get('name').toLowerCase() ]
+        const lowerCaseName = params.get('name')?.toLowerCase();
+        if(!lowerCaseName) {
+            throw new Error("Name is required but not provided");
+        }
+        let HypixelData = Cache[lowerCaseName]
         let previouslyCached = HypixelData ? true : false
 
         if (!previouslyCached) {
@@ -16,17 +19,17 @@ export default {
                     result => { HypixelData = result }
                 ));
         }
-        
+
         // Return raw response if unsuccessful
         if (!HypixelData.success || !HypixelData) return Res(HypixelData || {success: false, code: 404, error: 'Could not retrieve player data from cache or API'})
         HypixelData = HypixelData.player
 
-        Cache[params.get('name').toLowerCase()] = HypixelData
+        Cache[lowerCaseName] = HypixelData
 
         // Remove from cache after time
         if (!previouslyCached) {
             setTimeout(() => {
-                delete Cache[HypixelData.playername]
+                delete Cache[lowerCaseName]
             }, 120*1000);
         }
 
