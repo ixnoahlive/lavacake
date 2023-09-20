@@ -1,9 +1,10 @@
 import hypixelApi from "../utils/hypixelApi";
+import Cache from "../utils/Cache";
 import Res from "../../index";
 
 import parseRank, { Ranks } from '../utils/parsers/parseRank';
 import parseHousing from '../utils/parsers/parseHousing';
-import Cache from "../utils/Cache";
+import nwLevel from "../utils/calc/nwLevel";
 
 export default {
     path: '/player',
@@ -57,7 +58,15 @@ export default {
             playerName:  HypixelData.playername,
 
             rank: rankId,
-            rankFormatted: parseRank(rankId as keyof typeof Ranks, HypixelData.rankPlusColor?.toLowerCase(), HypixelData.monthlyRankColor?.toLowerCase()),
+            rankFormatted: parseRank(
+                    rankId as keyof typeof Ranks,
+                    HypixelData.rankPlusColor?.toLowerCase(), 
+                    HypixelData.monthlyRankColor?.toLowerCase()
+                 ),
+
+            exactNetworkLevel: nwLevel.getExactLevel(HypixelData.networkExp),
+            networkLevel: nwLevel.getLevel(HypixelData.networkExp),
+            networkExp: HypixelData.networkExp,
 
             firstLogin: HypixelData.firstLogin,
             lastLogout: HypixelData.lastLogout,
