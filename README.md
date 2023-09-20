@@ -25,16 +25,16 @@ Lavacake is an easily deployable Hypixel API webserver.
 | ⌛ | Pit Wrapping
 
 ## 📦 Installation
-This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOs and Windows.
+This installation guide is intended for Linux servers as they are most common and also the best place performance-wise for Lavacake. There may be incompatibility issues for macOS and Windows.
 
 ### Prerequisites
-Lavacake is best run through an NGINX-like software, this is due to the extra headers provided by said software allowing ratelimits to work. Of course, NGINX is **not required**. See the second link for disabling user ratelimits.
+Lavacake is best run through a reverse proxy (such as NGINX) software, this is due to the extra headers provided by said software allowing ratelimits to work. Of course, a reverse proxy is **not required**. See the second link for disabling user ratelimits.
 
 - [Installing NGINX](https://ubuntu.com/tutorials/install-and-configure-nginx)
 - [Configuring Lavacake](#configuring-lavacake)
 
 ### Installing Bun
-Lavacake uses native Bun functions, and **cannot be used with Node**. Thankfully, installing Bun is easy!
+Lavacake uses native Bun functions, and **cannot be used with Node**. Thankfully, installing Bun is easy! You can follow their [official documentation](https://bun.sh/) or just run the command below:
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
@@ -56,7 +56,7 @@ bun start
 ```
 
 ### Configuring Lavacake
-Bun has two configuration file, one containing your tokens & the other containing your config.
+Lvacake has two configuration files, one containing your tokens & the other containing your config.
 
 First, create a new file called `token.json` and paste in the following:
 
