@@ -14,12 +14,12 @@ Lavacake is a Hypixel API webserver that's built on [Bun](https://bun.sh/), maki
 
 If you want to open a feature request or work on a feature, check out our [issues](/issues) and [pull requests](/pulls)!
 
-|    | Feature         
-|----|-----------------
-| ✅ | Basic Player Info
-| ✅ | Rank Formatting
-| ✅ | Housing Wrapping
-| 🛠️ | Level Calculations
+|     | Feature            |
+|-----|--------------------|
+| ✅   | Basic Player Info  |
+| ✅   | Rank Formatting    |
+| ✅   | Housing Wrapping   |
+| 🛠️ | Level Calculations |
 
 ## Installation
 This installation guide is intended for Linux servers. There may be small differences or incompatibility issues for macOs and Windows.
@@ -49,7 +49,11 @@ We recommend hosting it on a screen or tmux session. You can then type the follo
 The app will start on Port 9753
 
 ```bash
-bun index.ts
+bun start
+```
+To run in development, use the `dev` command instead:
+```bash
+bun dev
 ```
 
 ## Data Sample
