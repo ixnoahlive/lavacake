@@ -20,7 +20,7 @@ Bun.serve({
             if (!consumerIP) {
                 throw new Error('x-forwarded-for header is required but not provided. Disable userRatelimit in config.json to solve this.')
             }
-            if (rateLimits[consumerIP] >= config.userRatelimit.reqAmount) return Res({ success: false, code: 429, error: 'You are being ratelimited', })
+            if (rateLimits[consumerIP] >= config.userRatelimit.reqAmount) return Res({ success: false, code: 429, error: 'You are being ratelimited' })
         }
 
         // Format data
@@ -29,7 +29,7 @@ Bun.serve({
 
         // Check for valid arguments
         if (!EndpointData) return Res({ success: false, code: 404, error: 'Not found' })
-        if (!EndpointData.params.every((key) => reqUrl.searchParams.has(key))) return Res({ success: false, code: 400, error: 'Missing parameters', required: EndpointData.params, })
+        if (!EndpointData.params.every((key) => reqUrl.searchParams.has(key))) return Res({ success: false, code: 400, error: 'Missing parameters', required: EndpointData.params })
 
         // Manage ratelimit addition
         if (config.userRatelimit.enabled) {

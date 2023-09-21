@@ -13,16 +13,16 @@ export default function parseHousing(rank: keyof typeof RankPriority, housingMet
     let slotsDefault = 1
     let slotsPurchased = housingMeta.purchasedSlots || 0
 
-    if (rankPriority >= 1) defaultSlots++
-    if (rankPriority >= 3) defaultSlots++
+    if (rankPriority >= 1) slotsDefault++
+    if (rankPriority >= 3) slotsDefault++
 
-    slots += defaultSlots
+    slots += slotsDefault
     slots += purchasedSlots
 
     return {
         housingPlus: housingMeta.packages?.includes('housing_plus'),
 
-        housingSlots: slots,
+        slots,
         slotsPurchased,
         slotsDefault,
 
