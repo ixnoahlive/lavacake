@@ -95,3 +95,5 @@ Now, please open config.json and we'll explain what all the funky values mean.
 ## ❓ FAQ
 - What "junk" is being removed by Lavacake?
     - At the minute, we're looking at only implementing core statistics for games & wrapping what's most used (e.g. levels & coins). It might seem generic to say junk, but not enough people will be checking the Mega SkyWars Quit Count for it to be wrapped. If there's anything missing that you would like included in Lavacake you can open an [issue](/issues) at our issues page.
+- How do I access the raw, unwrapped API data?
+    - Just put "raw" before an endpoint name, e.g. player -> rawPlayer (camelCase)
