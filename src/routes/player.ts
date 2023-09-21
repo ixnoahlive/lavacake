@@ -10,10 +10,6 @@ export default {
     path: '/player',
     params: ['name'],
     async run(req: Request, params: URLSearchParams) {
-        let lowerCaseName = params.get('name')?.toLowerCase()
-        if (!lowerCaseName) {
-            throw new Error('Name is required but not provided')
-        }
         let HypixelData = Cache[lowerCaseName]
         let previouslyCached = HypixelData ? true : false
 
