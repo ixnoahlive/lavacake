@@ -10,7 +10,7 @@
 </div>
 
 ## 🍰 Introduction
-Lavacake is an easily deployable Hypixel API webserver, so you can rest easy knowing you
+Lavacake is an easily deployable Hypixel API webserver, so you can rest easy knowing you have time to work on your Hypixel projects without spending time coding a pesky API.
 - **It's fast!** Lavacake runs on Bun, making it lightning fast for users & developers alike.
 - **It's clean!** Lavacake cleans up the Hypixel API, adding more wrapping & removing the [junk.](#-faq)
 - **Very tasty!** Every instance of Lavacake is guaranteed to taste good. Make sure to enjoy!
