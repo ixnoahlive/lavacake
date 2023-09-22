@@ -8,34 +8,27 @@ on:
     branches:
       - master
 jobs:
-  code_quality:
+  prettier:
+    name: Prettier Validation
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+
+      - name: Prettier Check
+        run: bun x prettier --check .
+  typescript:
     name: TypeScript Compilation
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Load Bun Cache
-        uses: actions/cache@v3
-        with:
-          path: /root/.bun
-          key: ${{ runner.os }}-bun
-
-      - name: Install Bun
-        if: steps.cache.outputs.cache-hit != 'true'
-        uses: oven-sh/setup-bun@v1
-
-      - name: Load Dependencies Cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Install Dependencies
-        run: bun install
-
-      - name: Prettier checks
-        run: bun x prettier --check .
+      - name: Setup Environment
+        uses: ./.github/actions/setup
 
       - name: Compile TypeScript
         run: bun x tsc
