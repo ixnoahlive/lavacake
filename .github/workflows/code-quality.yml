@@ -34,6 +34,9 @@ jobs:
       - name: Install Dependencies
         run: bun install
 
+      - name: Prettier checks
+        run: bun x prettier --check .
+
       - name: Compile TypeScript
         run: bun x tsc
 
