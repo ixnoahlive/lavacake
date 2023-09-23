@@ -1,5 +1,5 @@
-import player from "../routes/player";
-import Cache from "./Cache";
+import player from '../routes/player'
+import Cache from './Cache'
 
 // import ValidationError from "./ValidationError";
 
@@ -24,14 +24,14 @@ import Cache from "./Cache";
 // }
 
 /**
- * Checks cache + Queries Mojang API for uuid 
+ * Checks cache + Queries Mojang API for uuid
  * @param playerName Player name
  * @returns UUID string
  */
-export async function getUUID( playerName : string ) {
-    if (Cache[playerName]) return formatUUID( Cache[playerName].uuid )
-    fetch(`https://api.mojang.com/users/profiles/minecraft/${playerName}`).then(finishedPromise => {
-        await finishedPromise.json().then(result => {
+export async function getUUID(playerName: string) {
+    if (Cache[playerName]) return formatUUID(Cache[playerName].uuid)
+    fetch(`https://api.mojang.com/users/profiles/minecraft/${playerName}`).then((finishedPromise) => {
+        await finishedPromise.json().then((result) => {
             return result.uuid
         })
     })
