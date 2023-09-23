@@ -17,7 +17,7 @@ export default function parseHousing(rank: keyof typeof RankPriority, housingMet
     if (rankPriority >= 3) slotsDefault++
 
     slots += slotsDefault
-    slots += purchasedSlots
+    slots += slotsPurchased
 
     return {
         housingPlus: housingMeta.packages?.includes('housing_plus'),

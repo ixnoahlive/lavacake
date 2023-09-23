@@ -10,6 +10,7 @@ export default {
     path: '/player',
     params: ['name'],
     async run(req: Request, params: URLSearchParams) {
+        const lowerCaseName = params.get('name')?.toLowerCase()
         let HypixelData = Cache[lowerCaseName]
         let previouslyCached = HypixelData ? true : false
 
