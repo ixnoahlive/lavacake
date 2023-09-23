@@ -12,7 +12,8 @@
     },
     "devDependencies": {
         "bun-types": "latest",
-        "nodemon": "^3.0.1"
+        "nodemon": "^3.0.1",
+        "prettier": "^3.0.3"
     },
     "peerDependencies": {
         "typescript": "^5.0.0"
@@ -20,6 +21,7 @@
     "scripts": {
         "dev": "nodemon -L --exec \"tsc && bun --inspect=9229\" index.ts",
         "start": "bun index.ts",
+        "workflows": "act",
         "pretty": "bunx prettier . --write"
     }
 }
