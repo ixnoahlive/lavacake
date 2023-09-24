@@ -1,4 +1,4 @@
-import player from '../routes/player'
+import player from '../routes/wrapped/player'
 import Cache from './Cache'
 
 // import ValidationError from "./ValidationError";

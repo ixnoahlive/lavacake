@@ -1,11 +1,12 @@
 // @ts-nocheck
 import { Endpoint } from '../types/endpoint.ts'
-import player from './player.ts'
 import root from './.ts'
 
-import rawPlayer from './rawPlayer.ts'
-import rawRecentGames from './rawRecentGames.ts'
-import rawStatus from './rawStatus.ts'
+import player from './wrapped/player.ts'
+
+import rawPlayer from './raw/rawPlayer.ts'
+import rawRecentGames from './raw/rawRecentGames.ts'
+import rawStatus from './raw/rawStatus.ts'
 
 export const endpoints: Record<string, Endpoint> = {
     root,
