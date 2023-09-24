@@ -11,6 +11,8 @@ import rawPunishments from './raw/other/rawPunishments.ts'
 import rawBoosters from './raw/other/rawBoosters.ts'
 import rawCounts from './raw/other/rawCounts.ts'
 import rawLeaderboards from './raw/other/rawLeaderboards.ts'
+import rawGuild from './raw/player/rawGuild.ts'
+
 
 import rawSbBingo from './raw/skyblock/rawSbBingo.ts'
 import rawSbElections from './raw/skyblock/rawSbElections.ts'
@@ -31,6 +33,7 @@ export const endpoints: Record<string, Endpoint> = {
     rawCounts,
     rawStatus,
     rawPlayer,
+    rawGuild,
 
     rawSbBingo,
     rawSbElections,

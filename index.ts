@@ -29,7 +29,8 @@ Bun.serve({
 
         // Check for valid arguments
         if (!EndpointData) return Res({ success: false, code: 404, error: 'Not found' })
-        if (!EndpointData.params.every((key) => reqUrl.searchParams.has(key))) return Res({ success: false, code: 400, error: 'Missing parameters', required: EndpointData.params })
+        if (EndpointData.params?.length && !EndpointData.params.every((key) => reqUrl.searchParams.has(key))) return Res({ success: false, code: 400, error: 'Missing parameters', required: EndpointData.params })
+        if (EndpointData.oneOf?.length && !EndpointData.oneOf.some((key) => reqUrl.searchParams.has(key))) return Res({ success: false, code: 400, error: 'Specify one of these parameters', oneOf: EndpointData.oneOf })
 
         // Manage ratelimit addition
         if (config.userRatelimit.enabled) {
