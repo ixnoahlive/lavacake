@@ -29,7 +29,7 @@ import Cache from './Cache'
  * @returns UUID string
  */
 export async function getUUID(playerName: string) {
-    if (Cache[playerName]) return formatUUID(Cache[playerName].uuid)
+    if (Cache[playerName]) return Cache[playerName].uuid
     fetch(`https://api.mojang.com/users/profiles/minecraft/${playerName}`).then(async (finishedPromise) => {
         await finishedPromise.json().then((result) => {
             return result.uuid
