@@ -1,6 +1,6 @@
-import hypixelApi from '../../utils/hypixelApi'
-import Res from '../../../index'
-import Cache from '../../utils/Cache'
+import hypixelApi from '../../../utils/hypixelApi'
+import Res from '../../../../index'
+import Cache from '../../../utils/Cache'
 
 export default {
     path: '/rawPlayer',
