@@ -12,7 +12,7 @@ const rateLimits: Record<string, number> = {} // Track User Ratelimits
 // Currently unused while I'm researching how the ratelimits work
 const rateHypixel = { lastPeriod: Date.now(), requests: 0 } // Track Hypixel API Ratelimits
 Bun.serve({
-    port: 9753,
+    port: config.port || 9753,
     fetch(req) {
         // Check if ratelimited
         const consumerIP = req.headers.get('x-forwarded-for') || '0.0.0.0' // Fallback to prevnet TS annotation freakout
