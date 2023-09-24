@@ -19,7 +19,7 @@ export default {
                 searchParam = 'player'
                 break
         }
-        if (!searchParam) return Res({success: false, code: 400})
+        if (!searchParam) return Res({ success: false, code: 400 })
         const APIPromise = await hypixelApi.get(`/guild?${searchParam}=${params.get(searchParam)}`)
         const HypixelData = await APIPromise.json()
 
