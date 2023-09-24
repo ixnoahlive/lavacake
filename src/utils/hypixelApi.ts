@@ -7,7 +7,7 @@ const tokens = tokensJSON as {
     appToken: string
 }
 
-if (tokens[tokens.active]) console.warn("You didn't make a valid token.json file! Please refer to README.md!")
+if (!tokens[tokens.active]) console.warn("You didn't make a valid token.json file! Please refer to README.md!")
 
 function get(endpoint: string) {
     return fetch(`https://api.hypixel.net` + endpoint, {
