@@ -16,7 +16,7 @@ import rawLeaderboards from './raw/other/rawLeaderboards.ts'
 
 import rawAchievements from './raw/resources/rawAchievements.ts'
 import rawChallenges from './raw/resources/rawChallenges.ts'
-import rawCompanions from './raw/resources/rawVanityCompanions.ts'
+import rawVanityCompanions from './raw/resources/rawVanityCompanions.ts'
 import rawGameInfo from './raw/resources/rawGameInfo.ts'
 import rawQuests from './raw/resources/rawQuests.ts'
 import rawVanityPets from './raw/resources/rawVanityPets.ts'
